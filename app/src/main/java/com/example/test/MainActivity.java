@@ -7,19 +7,21 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     String[] ListviewTitle = new String[] {
-            "Listview Title 1" , "Listview Title 2", "Listview Title 3" , "Listview Title 4", "Listview Title 5"
+            "Aditi" , "Ashish", "Vishnu" , "Kashika", "Himanshu"
     };
 
     String[] ListviewDescription = new String[] {
-            "Listview Description 1" ,"Listview Description 2", "Listview Description 3" , "Listview Description 4" , "Listview Description 5"
+            "Life is Good.." ,"Not so happening!!", "Whatever happens is for the good!!" , "Live Happily" , "No issues"
     };
 
     int[] ListviewImages = new int[] {
-R.drawable.aij, R.drawable.aix , R.drawable.aiy, R.drawable.aiu, R.drawable.aio
+R.drawable.aditii, R.drawable.ashishj , R.drawable.vishnuu, R.drawable.kashikaa, R.drawable.hhimanshu
     };
 
     @Override
@@ -29,11 +31,11 @@ R.drawable.aij, R.drawable.aix , R.drawable.aiy, R.drawable.aiu, R.drawable.aio
 
         List<HashMap<String, String>> aList = new ArrayList<HashMap<String, String>>();
 
-        for (int x =0; x<0; x++) {
+        for (int i=0; i<5; i++) {
             HashMap<String, String> hm = new HashMap<String, String>();
-            hm.put("ListTitle", ListviewTitle[x]);
-            hm.put("ListDescription", ListviewDescription[x]);
-            hm.put("ListImages", Integer.toString(ListviewImages[x]));
+            hm.put("ListTitle", ListviewTitle[i]);
+            hm.put("ListDescription", ListviewDescription[i]);
+            hm.put("ListImages", Integer.toString(ListviewImages[i]));
             aList.add(hm);
         }
 
@@ -45,5 +47,6 @@ R.drawable.aij, R.drawable.aix , R.drawable.aiy, R.drawable.aiu, R.drawable.aio
 
         SimpleAdapter simpleAdapter = new SimpleAdapter(getBaseContext(), aList, R.layout.listview_items, from ,to);
         ListView simpleListview = (ListView)findViewById(R.id.list_view);
+        simpleListview.setAdapter(simpleAdapter);
     }
 }
